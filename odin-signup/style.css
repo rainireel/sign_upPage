@@ -1,0 +1,300 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Indie Flower', cursive;
+    height: 100vh;
+    overflow: hidden;
+    /* Prevent scrolling on desktop if possible */
+}
+
+/* --- DENIM BACKGROUND --- */
+.denim-bg {
+    width: 100%;
+    height: 100%;
+    background-color: #3b5998;
+    /* CSS Pattern for Denim Texture */
+    background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.1) 2px),
+        repeating-linear-gradient(-45deg, transparent, transparent 1px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.1) 2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* --- SCRAPBOOK CONTAINER --- */
+.scrapbook-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- RANSOM TITLE --- */
+.ransom-title {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 5px;
+    transform: rotate(-2deg);
+    z-index: 10;
+}
+
+.letter {
+    display: inline-block;
+    padding: 5px 10px;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #333;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid #fff;
+}
+
+.space {
+    width: 20px;
+}
+
+/* Randomize letters */
+.r-1 {
+    background: #ff9ff3;
+    transform: rotate(-5deg);
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+}
+
+.r-2 {
+    background: #feca57;
+    transform: rotate(3deg);
+    font-family: 'Amatic SC', cursive;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.r-3 {
+    background: #ff6b6b;
+    transform: rotate(-2deg);
+    color: white;
+}
+
+.r-4 {
+    background: #48dbfb;
+    transform: rotate(4deg);
+    font-family: 'Indie Flower', cursive;
+}
+
+.r-5 {
+    background: #1dd1a1;
+    transform: rotate(-3deg);
+    color: white;
+}
+
+.r-6 {
+    background: #5f27cd;
+    transform: rotate(2deg);
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+}
+
+/* --- PAPER CONTENT --- */
+.paper-content {
+    background: #fff;
+    padding: 40px;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: rotate(1deg);
+    position: relative;
+    /* Torn paper effect using clip-path could be complex, sticking to rough border radius */
+    border-radius: 2px 2px 2px 2px;
+    background-image:
+        linear-gradient(#e1e1e1 1px, transparent 1px);
+    background-size: 100% 2em;
+    /* Lined paper effect */
+    line-height: 2em;
+}
+
+/* Torn top edge simulation */
+.paper-content::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: radial-gradient(circle, transparent 50%, #fff 50%);
+    background-size: 20px 20px;
+    transform: rotate(180deg);
+}
+
+.header-text {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #555;
+    font-family: 'Indie Flower', cursive;
+}
+
+/* --- FORM --- */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.8);
+    /* Make inputs readable over lines */
+    padding: 5px;
+}
+
+label {
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    border: 2px solid #333;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    /* Sketchy border */
+    padding: 10px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.1rem;
+    background: transparent;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #ff6b6b;
+    border-width: 3px;
+}
+
+input.error {
+    border-color: #e74c3c;
+    border-style: dashed;
+}
+
+.error-msg {
+    color: #e74c3c;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+/* --- BUTTON & FOOTER --- */
+.footer-action {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sticker-button {
+    background: #ff9ff3;
+    color: #fff;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
+    padding: 10px 40px;
+    border: 3px solid white;
+    border-radius: 50px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transform: rotate(-2deg);
+    transition: transform 0.2s;
+}
+
+.sticker-button:hover {
+    transform: scale(1.1) rotate(0deg);
+}
+
+.footer-action p {
+    margin-top: 15px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.footer-action a {
+    color: #3b5998;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid #3b5998;
+}
+
+/* --- DECORATIONS --- */
+.tape-strip {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+}
+
+.top-center {
+    width: 150px;
+    height: 35px;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    background: rgba(255, 255, 255, 0.6);
+    border-left: 2px dotted rgba(0, 0, 0, 0.1);
+    border-right: 2px dotted rgba(0, 0, 0, 0.1);
+}
+
+.sticker {
+    position: absolute;
+    font-size: 3rem;
+    z-index: 20;
+    filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2));
+    cursor: default;
+}
+
+.star-sticker {
+    top: -20px;
+    right: -20px;
+    color: #feca57;
+    transform: rotate(15deg);
+}
+
+.smiley-sticker {
+    bottom: -30px;
+    left: -10px;
+    color: #ff9ff3;
+    transform: rotate(-15deg);
+    font-size: 4rem;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+
+    .scrapbook-container {
+        width: 95%;
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ransom-title {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .letter {
+        font-size: 2rem;
+    }
+}

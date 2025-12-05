@@ -1,0 +1,46 @@
+# PROJECT RULES & DOCUMENTATION: Odin Sign-Up Form
+
+## 1. Project Context
+*   **Goal:** Create a high-fidelity sign-up page based on the "Odin Project" design specifications.
+*   **Status:** Static Frontend Prototype (HTML/CSS/JS only).
+*   **Visual Style:** Split-screen layout. Left side is immersive media; Right side is a clean, high-contrast form.
+
+## 2. Tech Stack & Constraints
+*   **Language:** Vanilla HTML5, CSS3, JavaScript (ES6+).
+*   **Frameworks:** NONE. No Bootstrap, no Tailwind, no React. Keep it raw and lightweight.
+*   **Fonts:** 
+    *   Logo: 'Oswald' (or similar Norse/Blocky font).
+    *   Body: 'Roboto'.
+*   **Responsiveness:**
+    *   Desktop: Split screen (Left 40% / Right 60%).
+    *   Mobile: Stacked (Media top / Form bottom).
+
+## 3. Design System (The "Vibe")
+*   **Primary Color (Odin Green):** `#596D48` (Used for buttons and links).
+*   **Error Color:** `#bf212f` (Used for validation borders and text).
+*   **Background:** `#f9f9f9` for the form panel.
+*   **Logo Overlay:** Dark semi-transparent background to ensure readability over images.
+
+## 4. Coding Standards
+*   **HTML:** Semantic tags (`<form>`, `<section>`, `<main>`). Use IDs for JavaScript hooks and Classes for CSS styling.
+*   **CSS:** Use Flexbox for layout structure. Use CSS Grid for the form input fields (2 columns).
+*   **JavaScript:** 
+    *   Keep logic separate in `script.js`.
+    *   Use `const` and `let`, never `var`.
+    *   Event listeners must be attached to the DOM elements, not inline in HTML.
+
+## 5. Security & Best Practices (Frontend)
+*   **Input Validation:** 
+    *   Current: JavaScript visual match check for passwords.
+    *   Requirement: Inputs must have `type="email"`, `type="password"`, etc., to trigger browser-native security constraints.
+    *   Requirement: `required` attribute must be present on essential fields.
+*   **Future Backend Requirements (Notes for AI):**
+    *   *Note:* When a backend is attached, a CSRF token must be included in the form.
+    *   *Note:* Rate-limiting must be applied to the POST route on the server (Nginx or Express Middleware).
+    *   *Note:* CAPTCHA integration (e.g., reCAPTCHA v3) should be placed inside the `<form>` tag before the submit button if bot traffic is detected.
+
+## 6. Future Implementation Plans
+*   **Left Panel Animation:** 
+    *   The `.left-panel` container is built with `position: relative`.
+    *   Future animation/video must be `position: absolute` with `z-index: 0`.
+    *   Logo and Credits must remain `z-index: 2` to stay on top of the animation.
